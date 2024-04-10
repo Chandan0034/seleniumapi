@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)
 # Set up Chrome options for headless mode
 chrome_options = Options()
 chrome_options.add_argument('--headless')
