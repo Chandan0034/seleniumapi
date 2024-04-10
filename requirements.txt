@@ -1,0 +1,5 @@
+Flask
+Flask_Cors
+Gunicorn
+bs4
+selenium
