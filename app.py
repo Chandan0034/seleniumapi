@@ -10,7 +10,9 @@ CORS(app)
 chrome_options = Options()
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('--disable-gpu')
-
+@app.route('/',methods=['GET'])
+def home():
+    return jsonify("Message":"Welcome To This Api")
 @app.route('/get_video_src', methods=['GET'])
 def get_video_src():
     # Get the website link from the request query parameters
