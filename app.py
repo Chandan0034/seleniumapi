@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app)
 # Set up Chrome options for headless mode
 @app.route('/title',methods=['GET'])
-def home():
+def title():
     try:
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument('--headless')
