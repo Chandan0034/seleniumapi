@@ -1,6 +1,4 @@
 Flask
 Flask_Cors
 Gunicorn
-bs4
-selenium
-webdriver-manager
+youtube_dl
