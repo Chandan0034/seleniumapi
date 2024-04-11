@@ -13,11 +13,7 @@ def home():
 def get_video_src():
     # Get the website link from the request query parameters
     website_link = request.args.get('website_link')
-   ydl_opts = {
-    'quiet': True,
-    'extract_flat': True,
-    'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-    }
+   ydl_opts = {'quiet': True,'extract_flat': True,'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         try:
             result = ydl.extract_info(website_link, download=False)
