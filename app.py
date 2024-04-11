@@ -7,9 +7,19 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 # Set up Chrome options for headless mode
-chrome_options = Options()
-chrome_options.add_argument('--headless')
-chrome_options.add_argument('--disable-gpu')
+@app.route('/title',methods=['GET'])
+def home():
+    try:
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument('--disable-dev-shm-usage')
+        driver = webdriver.Chrome(options=chrome_options)
+        driver.get("https://google.com")
+        return jsonify({"Message":driver.title})
+    except Exception as e:
+        return jsonify({"error":str(e))
+        
 @app.route('/',methods=['GET'])
 def home():
     return jsonify({"Message":"Welcome To This Api"})
@@ -23,6 +33,10 @@ def get_video_src():
     
     try:
         # Initialize Chrome WebDriver with headless mode
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument('--disable-dev-shm-usage')
         driver = webdriver.Chrome(options=chrome_options)
         
         # Open the website link in ChromeDriver
