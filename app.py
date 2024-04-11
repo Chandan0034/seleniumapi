@@ -18,7 +18,7 @@ def home():
         driver.get("https://google.com")
         return jsonify({"Message":driver.title})
     except Exception as e:
-        return jsonify({"error":str(e))
+        return jsonify({"error":str(e)})
         
 @app.route('/',methods=['GET'])
 def home():
